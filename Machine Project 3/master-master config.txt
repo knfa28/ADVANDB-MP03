@@ -1,0 +1,55 @@
+#CENTRAL
+STOP SLAVE for channel  'master-1';
+
+CHANGE MASTER TO
+MASTER_HOST = '192.168.1.3',
+master_port = 3308,
+master_user = 'replicator',
+master_password = 'root',
+master_auto_position = 1 
+for channel 'master-1';
+
+RESET MASTER;
+
+START SLAVE for channel 'master-2';
+
+SHOW SLAVE STATUS;
+
+#PALAWAN
+STOP SLAVE for channel  'master-2';
+
+CHANGE MASTER TO
+MASTER_HOST = '192.168.1.3',
+master_port = 3307,
+master_user = 'replicator',
+master_password = 'root',
+master_auto_position = 1 
+for channel 'master-2';
+
+RESET MASTER;
+
+START SLAVE for channel 'master-2';
+
+SHOW SLAVE STATUS;
+
+#MARINDUQUE
+STOP SLAVE for channel  'master-3';
+
+CHANGE MASTER TO
+MASTER_HOST = '192.168.0.',
+master_port = 3309,
+master_user = 'replicator',
+master_password = 'root',
+master_auto_position = 1 
+for channel 'master-3';
+
+RESET MASTER;
+
+START SLAVE for channel 'master-3';
+
+SHOW SLAVE STATUS;
+
+
+
+
+

@@ -1,0 +1,1 @@
+jdbc:mysql://localhost:3308/, db_hpq_palawan, com.mysql.jdbc.Driver, root, root
